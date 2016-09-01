@@ -1,0 +1,51 @@
+<?php
+
+Yii::setAlias('@site', realpath(__DIR__ . '/../../site'));
+
+return [
+    'id' => 'web',
+    'language' => 'en-EN',
+    'basePath' => dirname(__DIR__),
+    'vendorPath' => realpath(dirname(__DIR__) . '/../../vendor'),
+    'bootstrap' => ['log', 'debug'],
+    'controllerNamespace' => 'site\controllers',
+
+    'modules' => [
+        'debug' => ['class' => 'yii\debug\Module', 'allowedIPs' => ['10.0.2.2']],
+    ],
+
+    'components' => [
+        'request' => [
+            'cookieValidationKey' => '',
+        ],
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                    'logFile' => '@site/runtime/logs/errors.log'
+                ],
+            ],
+        ],
+        'errorHandler' => [
+            'errorAction' => 'site/error',
+        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
+        'db' => [
+            'class' => 'yii\db\Connention',
+            'dsn' => 'mysql:host=localhost;dbname=',
+            'username' => '',
+            'password' => '',
+            'charset' => 'utf8',
+            'tablePrefix' => '',
+        ]
+    ],
+
+    'params' => [
+        'domain' => 'http://yiiauth',
+    ],
+];

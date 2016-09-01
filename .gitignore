@@ -1,0 +1,12 @@
+/.idea
+composer.lock
+
+### WEB ###
+/applications/site/config/main.php
+/applications/site/runtime/*
+!.gitkeep
+
+/applications/site/www/assets/
+/applications/site/www/upload/
+/applications/site/www/.htaccess
+/vendor
