@@ -28,6 +28,10 @@ return [
                 ],
             ],
         ],
+        'user' => [
+            'identityClass' => 'site\models\User',
+            'enableAutoLogin' => true,
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
